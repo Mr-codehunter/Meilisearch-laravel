@@ -19,8 +19,8 @@ class ArticlesController extends Controller
         
         $articles=Articles::all();
         
-        return response()->json($articles);
-        //return ArticlesResource::collection($articles);
+        // ret//urn response()->json($articles);
+        return ArticlesResource::collection($articles);
 
   }
 

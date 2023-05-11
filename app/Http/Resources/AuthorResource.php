@@ -23,7 +23,7 @@ class AuthorResource extends JsonResource
             'location'=>$this->location,
             'created_at'=>$this->created_at,
             'updated_at'=>$this->updated_at,
-            'articles'=>ArticlesResource::collection($this->articles),
+            //'articles'=>ArticlesResource::collection($this->articles),
     ];
 
     }

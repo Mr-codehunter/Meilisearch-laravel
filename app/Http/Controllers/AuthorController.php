@@ -50,9 +50,9 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        // return response()->json([
-        //     'author'=>$author
-        // ]);
+        return response()->json([
+            'author'=>$author
+        ]);
     }
 
     /**
