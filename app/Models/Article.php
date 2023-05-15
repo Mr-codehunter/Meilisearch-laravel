@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 // use App\Models\Author;
 
-class Articles extends Model
+class Article extends Model
 {
     use HasFactory;
     use Searchable; 
     
     
         protected $fillable = ['author_id','title','description'];
-
+    
     // public function searchableAs()
     // {
     //     return 'nebero';

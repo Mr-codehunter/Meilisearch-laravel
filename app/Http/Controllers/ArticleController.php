@@ -2,27 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Resources\ArticleResource;
 
-use App\Http\Resources\ArticlesResource;
-// use MeiliSearch\Client;
-
-
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
+        $article=Article::all();
         
-        $articles=Articles::all();
-        
-        // ret//urn response()->json($articles);
-        return ArticlesResource::collection($articles);
-
-  }
+        //return ArticleResource::collection($article);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -37,34 +31,37 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
-            'author_id'=>'nullable',
+            'author_id'=>'required',
             'title'=>'required',
-            'description'=>'required'
+            'description'=>'required',
     
         ]);
         
         Articles::create($request->all());
         
         return response()->json([
-            'message'=>'articles Created Successfully!!']);
+            'message'=>'article Created Successfully!!']);
+        }
 
-    }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Article $article)
     {
-        return response()->json([
-            'articles'=>$articles
-        ]);
+        // dd($article);
+        // return response()->json([
+        //     'articles'=>$article
+        // ]);
+            return new ArticleResource($article);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Article $article)
     {
         //
     }
@@ -72,7 +69,7 @@ class ArticlesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Article $article)
     {
         //
     }
@@ -80,7 +77,7 @@ class ArticlesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Article $article)
     {
         //
     }

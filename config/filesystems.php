@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'search' => [
+            'driver' => 'local',
+            'root' => storage_path('/home'),
+        ],
+
     ],
 
     /*

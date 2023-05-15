@@ -16,6 +16,15 @@ return [
     */
 
     'driver' => env('SCOUT_DRIVER', 'algolia'),
+        // 'driver' => 'null',
+
+        // 'engines' => [
+        //     'disk' => [
+        //         'driver' => 'disk',
+        //         'path' => storage_path('/home'),
+        //     ],
+        // ],
+        
 
     /*
     |--------------------------------------------------------------------------
@@ -132,18 +141,28 @@ return [
     'meilisearch' => [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY'),
-        'index-settings' => [
-            // 'author' => [
-            //     'filterableAttributes'=> ['name','location'],
-            //    'sortableAttributes' => ['id','location','name'],
+        'connections' => [
+            'default' => [
+                'driver' => 'collection',
+            'disk' => 'search',
 
-            // ],
-            'articles' => [
-                'filterableAttributes'=> ['author_id','title','description'],
-               'sortableAttributes' => ['id','author_id','title','description'],
-
+        ],
+    ],
+    
+    
+    'index-settings' => [
+        'authors' => [
+            'filterableAttributes'=> ['name','location'],
+            'sortableAttributes' => ['id','location','name'],
+            
+        ],
+        'articles' => [
+            'filterableAttributes'=> ['author_id','title','description'],
+            'sortableAttributes' => ['id','author_id','title','description'],
+            
             ],
         ],
     ],
 
+    
 ];

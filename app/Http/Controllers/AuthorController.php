@@ -50,6 +50,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        // dd($author);
         return response()->json([
             'author'=>$author
         ]);

@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\SearchController;
 
@@ -26,4 +26,4 @@ Route::get('search',[SearchController::class,'search']);
 
 Route::apiResource('author',AuthorController::class);
 
-Route::apiResource('articles',ArticlesController::class);
+Route::apiResource('articles',ArticleController::class);
