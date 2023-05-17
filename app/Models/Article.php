@@ -20,12 +20,6 @@ class Article extends Model
     //     return 'nebero';
     // }
 
-    // public function toSearchableArray()
-    // {
-    //     $array = $this->toArray();
-    //     return $array;
-    // }
-
     public function author()
     {
     
@@ -33,4 +27,13 @@ class Article extends Model
 
     }
     
+    public function toSearchableArray()
+    {
+        return [
+            'title' => '',
+            'description' => '',
+            // 'authors.name' => '',
+        ];
+    }
+
 }

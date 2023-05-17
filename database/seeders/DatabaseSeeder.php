@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
         // Author::factory(0)->create();
         // $this->call(AuthorSeeder::class);
-        Article::factory(100000)->create();
+        // Article::factory(100000)->create();
 
     }
 

@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    'driver' => env('SCOUT_DRIVER', ''),
         // 'driver' => 'null',
 
         // 'engines' => [
@@ -138,31 +138,31 @@ return [
     |
     */
 
-    'meilisearch' => [
-        'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
-        'key' => env('MEILISEARCH_KEY'),
-        'connections' => [
-            'default' => [
-                'driver' => 'collection',
-            'disk' => 'search',
+    // 'meilisearch' => [
+    //     'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
+    //     'key' => env('MEILISEARCH_KEY'),
+    //     'connections' => [
+    //         'default' => [
+    //             'driver' => 'collection',
+    //         'disk' => 'search',
 
-        ],
-    ],
+    //     ],
+    // ],
     
     
-    'index-settings' => [
-        'authors' => [
-            'filterableAttributes'=> ['name','location'],
-            'sortableAttributes' => ['id','location','name'],
+    // 'index-settings' => [
+    //     'authors' => [
+    //         'filterableAttributes'=> ['name','location'],
+    //         'sortableAttributes' => ['id','location','name'],
             
-        ],
-        'articles' => [
-            'filterableAttributes'=> ['author_id','title','description'],
-            'sortableAttributes' => ['id','author_id','title','description'],
+    //     ],
+    //     'articles' => [
+    //         'filterableAttributes'=> ['author_id','title','description'],
+    //         'sortableAttributes' => ['id','author_id','title','description'],
             
-            ],
-        ],
-    ],
+    //         ],
+    //     ],
+    // ],
 
     
 ];
