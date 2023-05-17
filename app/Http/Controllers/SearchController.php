@@ -24,13 +24,12 @@ class SearchController extends Controller
 
     $articles = Article::search(trim($request->get('search')) ?? '')
     ->query(function ($query) {
-        $query->join('authors', 'articles.author_id', 'authors.id')
-            ->select(['articles.id', 'articles.title',
-             'articles.description', 'authors.name as author',
-             'authors.location as location'])
-            ->where('authors.location','sit')
-            ->orderBy('articles.id', 'ASC');
-    })->paginate(500);
+        $query->whereHas('author', function ($subQuery) {
+            $subQuery->where('location', 'like', '%sit%');
+        });
+    })->orderBy('id', 'DESC')
+    ->paginate(500);
+
 
 return response()->json($articles);
 
